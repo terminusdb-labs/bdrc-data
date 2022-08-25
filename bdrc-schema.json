@@ -1,0 +1,47 @@
+{ "@type" : "@context",
+  "@documentation" : {
+      "@title" : "BDRC Data Schema",
+      "@description" : "BDRC Data Schema",
+      "@authors" : [""]
+  },
+  "@schema" : "http://purl.bdrc.io/ontology/admin/",
+  "@base" :  "http://purl.bdrc.io/resource/",
+  "adm" : "http://purl.bdrc.io/ontology/admin/",
+  "bda" : "http://purl.bdrc.io/admindata/",
+  "bdg" : "http://purl.bdrc.io/graph/",
+  "bdr": "http://purl.bdrc.io/resource/",
+  "bdu": "http://purl.bdrc.io/resource-nc/user/",
+  "owl": "http://www.w3.org/2002/07/owl#",
+  "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+  "rdfs" :  "http://www.w3.org/2000/01/rdf-schema#",
+  "skos":  "http://www.w3.org/2004/02/skos/core#",
+  "vcard": "http://www.w3.org/2006/vcard/ns#",
+  "xsd": "http://www.w3.org/2001/XMLSchema#"}
+
+{ "@type" : "Enum",
+  "@id" : "adm:ReleaseStatus",
+  "@base" : "bda:",
+  "@value" : ["StatusReleased", "StatusWithdrawn"]}
+
+{ "@type" : "Class",
+  "@id" : "AdminData",
+  "adminAbout" : "AdminData",
+  "metadataLegal" : "adm:Legal",
+  "status" : "adm:StatusReleased",
+}
+
+{ "@type" : "Class",
+  "@id" : "Work",
+  "skos:altLabel" : "xsd:Language" }
+
+{ "@type" : "Class",
+  "@id" : "Instance",
+  "skos:prefLabel" : "Language",
+  "bkra shis chen po'i mdo/"@bo-x-ewts ;
+        :hasTitle           bdr:TT953D3C1DC5FC4B58 ;
+        :instanceOf         bdr:WA14283 ;
+        :isRoot             true ;
+        :note    
+
+}
+
