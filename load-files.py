@@ -16,7 +16,7 @@ def optimize():
         subprocess.run(["terminusdb","optimize","admin/bdrc/_meta"])
         subprocess.run(["terminusdb","optimize","admin/bdrc/local/_commits"])
 
-RESTART_AFTER = ['/home/gavin/dev/bdrc/instances','43'] # set to [] to process everything
+RESTART_AFTER = ['/home/gavin/dev/bdrc/instances','a6'] # set to [] to process everything
 RESTART_SEEN = False # set to True to process everything
 Dirs = [INSTANCE_DIR,WORKS_DIR]
 for Dir in Dirs:
@@ -32,4 +32,6 @@ for Dir in Dirs:
                 if filename.endswith(".trig"):
                     optimize()
                     print(f"    processing {filename}")
-                    p = subprocess.run(["terminusdb", "triples", "load", "admin/bdrc/local/branch/main/instance", f"{Dir}/{hash_dir}/{filename}"])
+                    CMD = ["terminusdb", "triples", "load", "admin/bdrc/local/branch/main/instance", f"{Dir}/{hash_dir}/{filename}"]
+                    print(f"Running {CMD}")
+                    p = subprocess.run(CMD)
