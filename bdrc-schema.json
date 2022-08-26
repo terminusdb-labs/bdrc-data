@@ -5,7 +5,7 @@
       "@description" : "BDRC Data Schema",
       "@authors" : []
     },
-    "@schema" : "http://purl.bdrc.io/ontology/admin/",
+    "@schema" : "http://purl.bdrc.io/ontology/core/",
     "@base" :  "http://purl.bdrc.io/resource/",
     "adm" : "http://purl.bdrc.io/ontology/admin/",
     "cor" : "http://purl.bdrc.io/ontology/core/",
@@ -48,8 +48,8 @@
 
   { "@type" : "Class",
     "@id" : "cor:Note",
-    "noteText" : { "@type" : "Set",
-                   "@class" : "rdf:langString" }},
+    "cor:noteText" : { "@type" : "Set",
+                       "@class" : "rdf:langString" }},
 
   { "@type" : "Class",
     "@id" : "cor:Work",
