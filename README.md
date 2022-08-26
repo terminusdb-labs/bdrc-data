@@ -78,4 +78,44 @@ Now open a browser and go to `http://127.0.0.1:6363`
 
 ## Sharing
 
+We can share the data with others by setting a remote. TerminusX will
+allow you to have several data products as a remote for free, but BDRC
+has a special agreement for hosting large datasets.
+
+First, make an account on TerminusX. Then create a team in which you
+will share data products. Now create a data product. You could call it
+`bdrc`. Navigate to the main data product overview. On the side panel
+there will be a clone address. Copy this address, it should look
+something like:
+
+```
+https://cloud.terminusdb.com/TerminatorsX/TerminatorsX/bdrc
+```
+
+Now we can add that URL as a remote to our repository:
+
+```shell
+terminusdb remote add admin/bdrc origin 'https://cloud.terminusdb.com/TerminatorsX/TerminatorsX/bdrc'
+```
+
+We need to get a machine access token from TerminusX as well, so we
+can authenticate our communications. Go to TerminusX and obtain a new
+machine access token from the profile page. Copy this key and put it
+in a file called `~/.bdrc-access-key`.
+
+
+First we fetch the (*empty*) repository to our local storage.
+
+```shell
+terminusdb fetch admin/bdrc --token=$(cat ~/.bdrc-access-key)
+```
+
+Now we can push to the remote...
+
+```shell
+terminusdb push admin/bdrc --token=$(cat ~/.bdrc-access-key)
+```
+
+We will now have a copy of the database in TerminusX that others can
+clone and begin work on.
 
