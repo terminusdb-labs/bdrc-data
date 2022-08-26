@@ -6,9 +6,6 @@ import random
 INSTANCE_DIR='/home/gavin/dev/bdrc/instances'
 WORKS_DIR='/home/gavin/dev/bdrc/works'
 
-print(random.randint(0,9))
-
-
 def optimize():
     if random.randint(0,9) == 0:
         print(f"        optimizing...")
