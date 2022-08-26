@@ -4,8 +4,30 @@ This repository contains programs and schema for porting BDRC to TerminusDB.
 
 ## Install TerminusDB command line
 
-The best way to do this is to install the [snap]() if on linux. If you're
-not on linux you will have to make do with the bootstrap.
+The best way to do this is to install the
+[snap](https://snapcraft.io/terminusdb) if on linux. If you're not on
+linux you will have to make do with the
+[bootstrap](https://github.com/terminusdb/terminusdb-bootstrap) which
+lives in a docker file. The terminusdb command lines will have to be
+slightly altered if using the docker (SEE BELOW).
+
+### Bootstrap instructions...
+
+Follow the directions in the bootstrap page for installation. In these
+scripts if using the bootstrap, uses of `terminusdb` should be
+replaced with `./terminusdb-container cli`.
+
+## Add BDRC database to local storage
+
+We need to create the terminusdb storage. You should run this command
+in the folder you intend to keep the local storage.
+
+`terminusdb db create admin/bdrc --schema=false`
+
+We create it without schema checking, because BDRC has elements which
+we do not want to check for referential integrity. We can still impose
+a schema to allow us to recover and insert documents, but we will not
+be checking referential integrity when we do this.
 
 ## Process of Import
 
@@ -37,5 +59,23 @@ directory and repository.
 RESTART_AFTER = ['/home/gavin/dev/bdrc/instances','90'] # set to [] to process everything
 ```
 
-### Once we have imported we can load a (partial) schema
-terminusdb 
+## Schema Import
+
+Now we can import the schema, so that we can view the documents
+
+`cat bdrc-schema.json | terminusdb doc insert -f -g schema admin/bdrc`
+
+## View Documents
+
+The documents can now be viewed in the document explorer. We can start
+up a terminusdb server (in the same directory as the local storage) as
+follows:
+
+```shell
+terminusdb serve
+```
+Now open a browser and go to `http://127.0.0.1:6363`
+
+## Sharing
+
+
