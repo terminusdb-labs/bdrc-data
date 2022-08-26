@@ -59,6 +59,17 @@ directory and repository.
 RESTART_AFTER = ['/home/gavin/dev/bdrc/instances','90'] # set to [] to process everything
 ```
 
+After setting the appropriate paths etc. you can run the import with: 
+
+```shell
+python3 load-files.py
+```
+
+It will now report some information regarding import.
+
+NOTE: TerminusDB does not currently support EDTF. We will have to come
+up with a solution for dealing with EDTF.
+
 ## Schema Import
 
 Now we can import the schema, so that we can view the documents
