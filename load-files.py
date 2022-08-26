@@ -14,7 +14,7 @@ def optimize():
         subprocess.run(["terminusdb","optimize","admin/bdrc/local/_commits"])
 
 RESTART_AFTER = ['/home/gavin/dev/bdrc/instances','90'] # set to [] to process everything
-RESTART_SEEN = False # set to True to process everything
+RESTART_SEEN = False if len(RESTART_SEEN) > 0 else True
 Dirs = [INSTANCE_DIR,WORKS_DIR]
 for Dir in Dirs:
     print(f"Loading {Dir}")
